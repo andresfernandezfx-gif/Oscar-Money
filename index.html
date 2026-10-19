@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="OscarMoney - Gestiona tu dinero de forma simple y clara" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+  <meta name="apple-mobile-web-app-title" content="OscarMoney" />
+  <title>OscarMoney</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <!-- Lock Screen -->
+  <div id="lock-screen" class="lock-screen hidden">
+    <div class="lock-content">
+      <i class="fas fa-lock lock-icon"></i>
+      <h2>OscarMoney</h2>
+      <p class="lock-subtitle">Ingresa tu código para continuar</p>
+      <div class="pin-display" id="pin-display">
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+      </div>
+      <div class="pin-pad">
+        <button class="pin-btn" data-num="1">1</button>
+        <button class="pin-btn" data-num="2">2</button>
+        <button class="pin-btn" data-num="3">3</button>
+        <button class="pin-btn" data-num="4">4</button>
+        <button class="pin-btn" data-num="5">5</button>
+        <button class="pin-btn" data-num="6">6</button>
+        <button class="pin-btn" data-num="7">7</button>
+        <button class="pin-btn" data-num="8">8</button>
+        <button class="pin-btn" data-num="9">9</button>
+        <button class="pin-btn pin-bio" id="btn-bio"><i class="fas fa-fingerprint"></i></button>
+        <button class="pin-btn" data-num="0">0</button>
+        <button class="pin-btn pin-del" id="btn-del"><i class="fas fa-backspace"></i></button>
+      </div>
+      <p id="lock-error" class="lock-error hidden">Código incorrecto</p>
+    </div>
+  </div>
+
+  <div id="app">
+    <header class="header">
+      <div class="header-top">
+        <h1 id="page-title">OscarMoney</h1>
+        <button id="btn-theme" class="icon-btn" title="Cambiar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content"></main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-page="dashboard">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+      </button>
+      <button class="nav-item" data-page="transactions">
+        <i class="fas fa-list"></i>
+        <span>Movimientos</span>
+      </button>
+      <button class="nav-item nav-add" data-page="add">
+        <i class="fas fa-plus"></i>
+      </button>
+      <button class="nav-item" data-page="budgets">
+        <i class="fas fa-chart-pie"></i>
+        <span>Presupuestos</span>
+      </button>
+      <button class="nav-item" data-page="more">
+        <i class="fas fa-ellipsis-h"></i>
+        <span>Más</span>
+      </button>
+    </nav>
+    <div class="bottom-nav-safe" aria-hidden="true"></div>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Título</h2>
+        <button id="modal-close" class="icon-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
